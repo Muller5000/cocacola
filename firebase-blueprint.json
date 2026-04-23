@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account information and role.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["Admin", "Editor", "Viewer"] },
+        "avatar": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "KPI": {
+      "title": "Metric",
+      "description": "Individual dashboard metric.",
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "currentValue": { "type": "number" },
+        "previousValue": { "type": "number" },
+        "trend": { "type": "number" },
+        "trendDirection": { "type": "string", "enum": ["up", "down"] }
+      },
+      "required": ["label", "currentValue"]
+    },
+    "Product": {
+      "title": "Inventory Item",
+      "description": "Coca-Cola SKU and supply data.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "sku": { "type": "string" },
+        "category": { "type": "string" },
+        "stock": { "type": "number" },
+        "unitPrice": { "type": "number" },
+        "status": { "type": "string", "enum": ["available", "low-stock", "out-of-stock"] },
+        "image": { "type": "string" },
+        "revenue": { "type": "number" },
+        "sold": { "type": "number" }
+      }
+    },
+    "Outlet": {
+      "title": "Distribution Outlet",
+      "description": "Regional retail outlet info.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "status": { "type": "string", "enum": ["active", "inactive"] },
+        "lastDelivery": { "type": "string" },
+        "volume": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User registration and profiles."
+    },
+    "/kpis/{kpiId}": {
+      "schema": "KPI",
+      "description": "Global performance metrics."
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Inventory and sales data."
+    },
+    "/outlets/{outletId}": {
+      "schema": "Outlet",
+      "description": "Territory outlet performance."
+    }
+  }
+}
