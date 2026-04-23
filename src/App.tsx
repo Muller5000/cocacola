@@ -444,8 +444,8 @@ export default function App() {
       {/* AI Assistant Drawer */}
       {visibleWidgets.includes('assistant') && (
         <div className={cn(
-          "fixed bottom-10 right-10 z-40 transition-all duration-300",
-          isAssistantMinimized ? "w-[240px]" : "w-[400px]"
+          "fixed bottom-0 sm:bottom-10 right-0 sm:right-10 z-40 transition-all duration-300 p-2 sm:p-0",
+          isAssistantMinimized ? "w-full sm:w-[240px]" : "w-full sm:w-[400px]"
         )}>
            <WidgetContainer 
               title="AI Supply Intelligence" 
