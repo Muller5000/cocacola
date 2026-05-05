@@ -18,6 +18,7 @@ import {
   ArrowDownRight,
   CheckCircle
 } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import AppLayout from './components/AppLayout';
 import { DistributionMap } from './components/DistributionMap';
 import { WidgetContainer } from './components/WidgetContainer';
@@ -513,6 +514,7 @@ export default function App() {
             </div>
          </div>
       )}
+      <SpeedInsights />
     </AppLayout>
   );
 }
